@@ -40,6 +40,11 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          env:
+            - name: API_PORT
+              value: '5000'
+            - name: API_HOST
+              value: backend-rest.pf5k68pq-rest-dev
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
